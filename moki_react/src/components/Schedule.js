@@ -37,7 +37,7 @@ function Schedule(props){
           const enableState = s.task.fixed && s.task.session_done ? true : false
         return (
             <tr>
-      <td className="text-left ">{new Date(s.time).toUTCString()}</td>
+      <td className="text-left ">{new Date(s.time).toString()}</td>
       <td className="text-left">{s.task.name}</td>
       <td className="text-center">{s.task.least_time_division.toFixed(0)}</td>
       {
