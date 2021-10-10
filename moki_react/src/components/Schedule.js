@@ -37,7 +37,7 @@ function Schedule(props){
           const enableState = s.task.fixed && s.task.session_done ? true : false
         return (
             <tr>
-      <td className="text-left ">{new Date(s.time).toString()}</td>
+      <td className="text-left ">{new Date(s.time).toString().slice(0,28)}</td>
       <td className="text-left">{s.task.name}</td>
       <td className="text-center">{s.task.least_time_division.toFixed(0)}</td>
       {
@@ -48,7 +48,7 @@ function Schedule(props){
       }
      
       {
-   currentTime > new Date(s.time.substring(0,s.time.indexOf("+"))).getTime() ?(
+   currentTime > new Date(s.time).getTime() ?(
       <td className="text-center"><ToggleButton task={s} enableState ={enableState} /></td>
         ):(
           <td className="text-center"></td>
