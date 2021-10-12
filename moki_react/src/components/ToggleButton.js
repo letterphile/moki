@@ -9,7 +9,7 @@ export default function ToggleButton(props) {
   function handleChange (){
     setEnabled(!enabled)
     let incrementValue = enabled ? -1 : 1
-    const time = props.task.time.substring(0,props.task.time.indexOf("+"))
+    const time = props.task.time
     const dateTime  = new Date(time)
     const time_difference = ((Date.now() - dateTime.getTime())/1000/60/60).toFixed(2)
 
@@ -23,7 +23,10 @@ export default function ToggleButton(props) {
         "duration":time_difference
     }
     const fixedTaskFilter = {
-        "task.name":props.task.task.name
+        "task.name":props.task.task.name,
+        "name":props.task.task.name,
+        "time":props.task.time,
+        "duration":time_difference
     }
     const fixedTaskUpdate = {
         "$inc":{"task.session_done": incrementValue}

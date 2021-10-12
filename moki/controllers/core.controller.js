@@ -11,7 +11,7 @@ async function createSchedule (req, res, next) {
         const fixedTasks = await fixedTaskObject.find()
         
        
-        axios.post('http://moki-python:80/schedule',{
+        axios.post(`http://${process.env.PY_HOST}:${process.env.PY_PORT}/schedule`,{
             "tasks":tasks,
             "fixed_tasks":fixedTasks
     
@@ -45,7 +45,7 @@ async function createSchedule (req, res, next) {
         const fixedTasks = await fixedTaskObject.find()
         
        
-        axios.post('http://moki-python:80/schedule/tasks',{
+        axios.post(`http:/${process.env.PY_HOST}:${process.env.PY_PORT}/schedule/tasks`,{
             "tasks":tasks,
             "fixed_tasks":fixedTasks
     

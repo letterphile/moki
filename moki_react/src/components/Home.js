@@ -49,7 +49,7 @@ function Home(props) {
             if(startDateValue!=""){
                 const formatedDate = startDateValue.split('/').reverse().join('-')
               
-                const startDateTime = formatedDate+"T"+startTimeValue+"+00:00"
+                const startDateTime = formatedDate+"T"+startTimeValue+"+01:00"
                 
                 axios.post(`${process.env.REACT_APP_API_ADDRESS}/fixed_task/create`,{
                   task:{

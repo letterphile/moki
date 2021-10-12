@@ -37,7 +37,7 @@ function FootPrints(props){
      
         return (
             <tr>
-      <td className="text-left ">{new Date(s.time).toUTCString()}</td>
+      <td className="text-left ">{new Date(s.time).toString().slice(0,28)}</td>
       <td className="text-left">{s.name}</td>
       <td className="text-center">{(s.duration * 60).toFixed(0)}</td>
     </tr> 

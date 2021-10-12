@@ -10,12 +10,19 @@ services:
             - moki_network
     moki_express:
         image: moki_express
+        environment:
+            - PY_HOST=moki-python
+            - PY_PORT=80 
         ports:
             - "5000:3000"
         networks:
             - moki_network
+
+        
     moki_react:
         image: moki_react
+        environment:
+            - REACT_APP_API_ADDRESS=http://localhost:5000
         ports:
             - "3000:3000"
         networks:

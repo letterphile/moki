@@ -49,7 +49,7 @@ function Tasks(props){
           {/* <td className="text-left ">{new Date(s.time).toUTCString()}</td> */}
           <td className="text-left">{s.task.name}</td>
           <td className="text-center">{s.task.expected_time_complete+" hours"}</td>
-          <td className="text-center">{new Date(s.time).toUTCString()}</td>
+          <td className="text-center">{new Date(s.time).toString().slice(0,28)}</td>
           <td className="text-center"><ToggleButton2 task={s} isFreeze ={s.task.freeze} /></td>
         </tr> 
             

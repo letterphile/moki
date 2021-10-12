@@ -10,7 +10,7 @@ import Home from './Home'
 import Tasks from './Tasks'
 import FootPrints from "./FootPrints";
 import Schedule  from "./Schedule";
-
+import Topics from './Topics'
 function Navigation(){
     const [page, setPage] = useState("home");
     function changePage(page){
@@ -20,7 +20,8 @@ function Navigation(){
         home:"text-gray-600",
         schedule:"text-gray-600",
         tasks:"text-gray-600",
-        footprints:"text-gray-600"
+        footprints:"text-gray-600",
+        topics:"text-gray-600"
     }
     color[page]="text-black"
     return(
@@ -59,8 +60,18 @@ function Navigation(){
     </p>
     </Link>
 </div>
+<div>
+<Link to="/topics">
+    <p className={`hover:text-black ${color["topics"]} cursor-pointer `}>
+        Topics
+    </p>
+    </Link>
+</div>
 </div>
 <Switch>
+         <Route path="/topics">
+          <Topics changePage={changePage} />
+          </Route>
           <Route path="/footprints">
             <FootPrints changePage={changePage} />
           </Route>
