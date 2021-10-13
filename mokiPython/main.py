@@ -3,7 +3,10 @@ from typing import List, Optional
 from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.moki_core import *
+try:
+    from app.moki_core import *
+except:
+    from moki_core import *
 origins = [
     "http://localhost:3006"
 ]

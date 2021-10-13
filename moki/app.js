@@ -10,7 +10,12 @@ var taskRouter = require("./routes/v1/task");
 var fixedTaskRouter = require("./routes/v1/fixedTask");
 var coreRouter = require("./routes/v1/core");
 var footPrintRouter = require("./routes/v1/footPrint");
+var topicRouter = require("./routes/v1/topic");
+
+
 const mongoose = require("mongoose");
+require('dotenv').config()
+
 
 mongoose
   .connect("mongodb+srv://aswin:aswin@cluster0.9tit5.mongodb.net/mokidb?retryWrites=true&w=majority", {
@@ -42,7 +47,7 @@ app.use("/task", taskRouter);
 app.use("/fixed_task", fixedTaskRouter);
 app.use("/schedule", coreRouter);
 app.use("/foot_prints", footPrintRouter);
-
+app.use("/topics",topicRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

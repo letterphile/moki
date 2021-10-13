@@ -1,7 +1,7 @@
 const TaskOperation = require("../operations/task.operation");
 const FixedTaskOperation = require("../operations/fixedTask.operation");
 const axios = require('axios');
-
+require('dotenv').config()
 
 async function createSchedule (req, res, next) {
     try {
@@ -37,6 +37,8 @@ async function createSchedule (req, res, next) {
 
 
   async function dobTask (req, res, next) {
+    console.log(process.env.PY_HOST)
+    console.log(process.env.PY_PORT)
     try {
         const taskObject = new TaskOperation()
         const fixedTaskObject = new FixedTaskOperation()
@@ -45,7 +47,7 @@ async function createSchedule (req, res, next) {
         const fixedTasks = await fixedTaskObject.find()
         
        
-        axios.post(`http:/${process.env.PY_HOST}:${process.env.PY_PORT}/schedule/tasks`,{
+        axios.post(`http://${process.env.PY_HOST}:${process.env.PY_PORT}/schedule/tasks`,{
             "tasks":tasks,
             "fixed_tasks":fixedTasks
     
@@ -59,6 +61,8 @@ async function createSchedule (req, res, next) {
          frozenTasks:frozenTasks
         // message: `Document inserted to ${this.model.prototype.constructor.modelName}`,
       });
+  }).catch(e=>{
+    console.log(e)
   });
       
     } catch (err) {

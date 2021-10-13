@@ -36,7 +36,9 @@ class BasicController {
   };
 
   getAll = async (req, res, next) => {
+    
     try {
+      
       const result = await this.modelOperations.find();
 
       res.send({
